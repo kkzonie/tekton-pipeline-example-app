@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: 2048-app
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`2048.kkzonie.com`)
+    kind: Rule
+    services:
+    - name: svc-2048
+      port: 8000
